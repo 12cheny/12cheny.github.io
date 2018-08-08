@@ -86,12 +86,13 @@
       
         <h1 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h1><p>此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM,更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨率问题上，生成模型也与图像重建更加契合。</p>
 <h1 id="2-网络结构"><a href="#2-网络结构" class="headerlink" title="2.网络结构"></a>2.网络结构</h1><p>GAN有两个网络，即生成器与判别器</p>
-<h2 id="生成网络"><a href="#生成网络" class="headerlink" title="生成网络"></a>生成网络</h2><p><img src="/images/GNet.png" alt=""><br>生成网络是一个img2img 网络，</p>
+<h2 id="生成网络"><a href="#生成网络" class="headerlink" title="生成网络"></a>生成网络</h2><p><img src="/images/GNet.png" alt=""><br>生成网络是一个img2img网络，其实就是一个上采样过程，输入LR图片，输出SR图片，其核心是B相同布局的残差块，用两个小的3*3卷积核的卷积层和64张特征图，然后是batch-normalization layers和RELU作为激活函数，再用2个trained sub-pixel卷积层增加输入图像的分辨率。</p>
+<h2 id="判别网络"><a href="#判别网络" class="headerlink" title="判别网络"></a>判别网络</h2><p><img src="/images/DNet.png" alt=""></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/08/SRGAN/" data-id="cjkkj9fsm00016gtbzchv3wds" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/08/SRGAN/" data-id="cjkkry3680000estbf30fx3e6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -128,7 +129,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/06/The-Perception-Distortion-Tradeoff/" data-id="cjkkj9ftm00036gtbqbap7m9i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/06/The-Perception-Distortion-Tradeoff/" data-id="cjkkry37j0002estbpuqmj791" class="article-share-link">Share</a>
       
       
     </footer>
@@ -170,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/06/Super-Resolution/" data-id="cjkkj9ft200026gtbi03zsslb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/06/Super-Resolution/" data-id="cjkkry3740001estbluct7j4e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -210,7 +211,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/06/My-New-Post/" data-id="cjkkj9fs700006gtbfq6gz1j4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/06/My-New-Post/" data-id="cjkkry37j0003estbk6d5appr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -255,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/05/hello-world/" data-id="cjkkj9ftm00046gtb5ndabd18" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/05/hello-world/" data-id="cjkkry39a0004estbk0v8u58e" class="article-share-link">Share</a>
       
       
     </footer>
