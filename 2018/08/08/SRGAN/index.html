@@ -7,12 +7,12 @@
   
   <title>SRGAN | Myblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.简介此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM,更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨率问题">
+  <meta name="description" content="原文 1.简介此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM,更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SRGAN">
 <meta property="og:url" content="http://yoursite.com/2018/08/08/SRGAN/index.html">
 <meta property="og:site_name" content="Myblog">
-<meta property="og:description" content="1.简介此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM,更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨率问题">
+<meta property="og:description" content="原文 1.简介此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM,更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/GNet.png">
 <meta property="og:image" content="http://yoursite.com/images/DNet.png">
@@ -21,10 +21,10 @@
 <meta property="og:image" content="http://yoursite.com/images/adversarial_loss.png">
 <meta property="og:image" content="http://yoursite.com/images/Result1.png">
 <meta property="og:image" content="http://yoursite.com/images/Result2.png">
-<meta property="og:updated_time" content="2018-08-08T08:56:03.199Z">
+<meta property="og:updated_time" content="2018-08-08T11:58:54.231Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SRGAN">
-<meta name="twitter:description" content="1.简介此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM,更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨率问题">
+<meta name="twitter:description" content="原文 1.简介此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM,更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨">
 <meta name="twitter:image" content="http://yoursite.com/images/GNet.png">
   
     <link rel="alternate" href="/atom.xml" title="Myblog" type="application/atom+xml">
@@ -94,7 +94,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h1><p>此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM,更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨率问题上，生成模型也与图像重建更加契合。</p>
+        <p><a href="https://arxiv.org/pdf/1609.04802.pdf" target="_blank" rel="noopener">原文</a></p>
+<h1 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h1><p>此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM,更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨率问题上，生成模型也与图像重建更加契合。</p>
 <h1 id="2-网络结构"><a href="#2-网络结构" class="headerlink" title="2.网络结构"></a>2.网络结构</h1><p>GAN有两个网络，即生成器与判别器</p>
 <h2 id="生成网络"><a href="#生成网络" class="headerlink" title="生成网络"></a>生成网络</h2><p><img src="/images/GNet.png" alt=""><br>生成网络是一个img2img网络，其实就是一个上采样过程，输入LR图片，输出SR图片，其核心是B相同布局的残差块，用两个小的3*3卷积核的卷积层和64张特征图，然后是batch-normalization layers和RELU作为激活函数，再用2个trained sub-pixel卷积层增加输入图像的分辨率。</p>
 <h2 id="判别网络"><a href="#判别网络" class="headerlink" title="判别网络"></a>判别网络</h2><p><img src="/images/DNet.png" alt=""><br>判别网络用Leaky ReLU激活,避免整个网络max-pooling最大池化.判别器网络训练来解决最大化问题.它包含8个过滤核函数递增的卷积层,按从2到64到512个核函数增长,和VGG网络一样. 每当特征数翻倍的时候,strided convolution 用来降低图像分辨率.作为结果的512个特征图后是2个密集层dense layers和一个final sigmoid 激活函数来得到样本类别的概率.</p>
@@ -108,7 +109,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/08/SRGAN/" data-id="cjkkwgfjf0001h8tbh4ze74zy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/08/SRGAN/" data-id="cjklfdcfu0004v0tbxf0bpc3k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -116,6 +117,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/08/08/EDSR/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          EDSR
+        
+      </div>
+    </a>
   
   
     <a href="/2018/08/06/The-Perception-Distortion-Tradeoff/" id="article-nav-older" class="article-nav-link-wrap">
@@ -157,6 +167,14 @@
       <ul>
         
           <li>
+            <a href="/2018/08/09/GAN/">GAN</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/08/EDSR/">EDSR</a>
+          </li>
+        
+          <li>
             <a href="/2018/08/08/SRGAN/">SRGAN</a>
           </li>
         
@@ -166,14 +184,6 @@
         
           <li>
             <a href="/2018/08/06/Super-Resolution/">Super Resolution</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/06/My-New-Post/">tensorflow-一元线性模型</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/05/hello-world/">Hello World</a>
           </li>
         
       </ul>
