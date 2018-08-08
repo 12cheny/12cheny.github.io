@@ -5,19 +5,21 @@
   
 
   
-  <title>The Perception-Distortion Tradeoff | Myblog</title>
+  <title>SRGAN | Myblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文">
+  <meta name="description" content="1.简介此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM,更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨率问题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The Perception-Distortion Tradeoff">
-<meta property="og:url" content="http://yoursite.com/2018/08/06/The-Perception-Distortion-Tradeoff/index.html">
+<meta property="og:title" content="SRGAN">
+<meta property="og:url" content="http://yoursite.com/2018/08/08/SRGAN/index.html">
 <meta property="og:site_name" content="Myblog">
-<meta property="og:description" content="原文">
+<meta property="og:description" content="1.简介此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM,更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨率问题">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-06T09:23:38.742Z">
+<meta property="og:image" content="http://yoursite.com/images/GNet.png">
+<meta property="og:updated_time" content="2018-08-08T02:34:35.627Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Perception-Distortion Tradeoff">
-<meta name="twitter:description" content="原文">
+<meta name="twitter:title" content="SRGAN">
+<meta name="twitter:description" content="1.简介此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM,更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨率问题">
+<meta name="twitter:image" content="http://yoursite.com/images/GNet.png">
   
     <link rel="alternate" href="/atom.xml" title="Myblog" type="application/atom+xml">
   
@@ -64,10 +66,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-The-Perception-Distortion-Tradeoff" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-SRGAN" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/08/06/The-Perception-Distortion-Tradeoff/" class="article-date">
-  <time datetime="2018-08-06T08:42:31.000Z" itemprop="datePublished">2018-08-06</time>
+    <a href="/2018/08/08/SRGAN/" class="article-date">
+  <time datetime="2018-08-08T01:36:02.000Z" itemprop="datePublished">2018-08-08</time>
 </a>
     
   </div>
@@ -78,7 +80,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      The Perception-Distortion Tradeoff
+      SRGAN
     </h1>
   
 
@@ -86,12 +88,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://arxiv.org/pdf/1711.06077.pdf" target="_blank" rel="noopener">原文</a></p>
+        <h1 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h1><p>此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM,更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨率问题上，生成模型也与图像重建更加契合。</p>
+<h1 id="2-网络结构"><a href="#2-网络结构" class="headerlink" title="2.网络结构"></a>2.网络结构</h1><p>GAN有两个网络，即生成器与判别器</p>
+<h2 id="生成网络"><a href="#生成网络" class="headerlink" title="生成网络"></a>生成网络</h2><p><img src="/images/GNet.png" alt=""></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/06/The-Perception-Distortion-Tradeoff/" data-id="cjkkitl2c0002e4tbkn6ml2k5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/08/SRGAN/" data-id="cjkkitl1y0001e4tbi90b97pk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -100,19 +104,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/08/08/SRGAN/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          SRGAN
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/06/Super-Resolution/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/08/06/The-Perception-Distortion-Tradeoff/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Super Resolution</div>
+      <div class="article-nav-title">The Perception-Distortion Tradeoff</div>
     </a>
   
 </nav>
