@@ -257,18 +257,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://arxiv.org/pdf/1609.04802.pdf" target="_blank" rel="noopener">原文</a></p>
-<h1 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h1><p>此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM,更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨率问题上，生成模型也与图像重建更加契合。</p>
-<h1 id="2-网络结构"><a href="#2-网络结构" class="headerlink" title="2.网络结构"></a>2.网络结构</h1><p>GAN有两个网络，即生成器与判别器</p>
-<h2 id="生成网络"><a href="#生成网络" class="headerlink" title="生成网络"></a>生成网络</h2><p><img src="/images/GNet.png" alt=""><br>生成网络是一个img2img网络，其实就是一个上采样过程，输入LR图片，输出SR图片，其核心是B相同布局的残差块，用两个小的3*3卷积核的卷积层和64张特征图，然后是batch-normalization layers和RELU作为激活函数，再用2个trained sub-pixel卷积层增加输入图像的分辨率。</p>
-<h2 id="判别网络"><a href="#判别网络" class="headerlink" title="判别网络"></a>判别网络</h2><p><img src="/images/DNet.png" alt=""><br>判别网络用Leaky ReLU激活,避免整个网络max-pooling最大池化.判别器网络训练来解决最大化问题.它包含8个过滤核函数递增的卷积层,按从2到64到512个核函数增长,和VGG网络一样. 每当特征数翻倍的时候,strided convolution 用来降低图像分辨率.作为结果的512个特征图后是2个密集层dense layers和一个final sigmoid 激活函数来得到样本类别的概率.</p>
-<h1 id="3-网络损失函数"><a href="#3-网络损失函数" class="headerlink" title="3.网络损失函数"></a>3.网络损失函数</h1><p>对于一个网络而言，除了结构，最重要的就是损失函数，它决定着网络是朝着哪个方向优化的，对于GAN来说，要训练两个网络，自然也会有两个损失函数，本文的一个亮点是perceptual loss，它由两部分组成：<br><img src="/images/perceptual_loss.png" alt=""></p>
-<h3 id="1-content-loss"><a href="#1-content-loss" class="headerlink" title="(1)content loss"></a>(1)content loss</h3><p><img src="/images/content_loss.png" alt=""><br>这里是将HR图片与SR图片经过预训练的VGG网络得到的高层特征间的欧氏距离作为损失函数，使两者感知接近</p>
-<h3 id="2-adversarial-loss"><a href="#2-adversarial-loss" class="headerlink" title="(2)adversarial loss"></a>(2)adversarial loss</h3><p><img src="/images/adversarial_loss.png" alt=""><br>这个与传统GAN中的对抗损失一样，通过判决器来优化生成器。</p>
-<h3 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h3><p>GAN网络的训练是个博弈过程，首先是先训练判别器，让其具有一定的判别能力，再训练生成器，提高欺骗判别器的能力，如此往来两者都逐渐优化 。这里的生成器是通过生成器判别器连接网络来进行优化的，所以需要优化判决器进而优化生成器。这里的生成器损失函数只是加了一项content loss来使生成的图片感知更好。</p>
-<h1 id="4-实验结果"><a href="#4-实验结果" class="headerlink" title="4.实验结果"></a>4.实验结果</h1><p>我们在3个被广泛试用的基准数据集 Set5,Set14,BSD100,上进行实验.所有实验在低分辨率和高分辨率图像间的4倍系数上进行.这相当于在图像像素上降低16倍.<br><img src="/images/Result1.png" alt=""><br>由图可见，相对于SRResNet，SRGAN感知效果明显更好，但是PSNR、SSIM等传统参数，即失真度明显更高。<br><img src="/images/Result2.png" alt=""><br>对比常规方法，学习法的效果明显更好，而SRGAN虽然MOS更高，但是PSNR与SSIM基本比其他学习法更低。</p>
-<h1 id="5-讨论"><a href="#5-讨论" class="headerlink" title="5.讨论"></a>5.讨论</h1><p>首先是超分辨率评价标准的问题，PSNR与SSIM固然能够反映图片质量，但是它们只是在失真层面上的，无法反映感知效果，所以本文用了content loss来增加感知体验，结果也显而易见是比较好的。在我另外一篇博客<a href="https://12cheny.github.io/2018/08/06/The-Perception-Distortion-Tradeoff/" target="_blank" rel="noopener">The-Perception-Distortion-Tradeoff</a>中将会详细介绍关于评价标准的问题。</p>
-
+              <p><a href="https://arxiv.org/pdf/1609.04802.pdf" target="_blank" rel="noopener">原文</a></p>
+<h1 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h1><h2 id="此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM-更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨率问题上，生成模型也与图像重建更加契合。"><a href="#此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM-更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨率问题上，生成模型也与图像重建更加契合。" class="headerlink" title="此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM,更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨率问题上，生成模型也与图像重建更加契合。"></a>此前其实也有很多基于学习法的超分辨率算法，例如SRCNN、SRDenseNet，虽然这些算法相对于传统算法有很大的提升，但是他们的感知效果依然没有那么好，因为他们的优化标准是PSNR和SSIM,更多的是保证重建图片失真度小，所以图片看似光滑，但是丢失了很多高频细节。而SRGAN则将感知效果作为主要目标，虽然最后得到的PSNR等参数并不好，但图像更加真实。另外它将生成对抗网络引入超分辨率问题上，生成模型也与图像重建更加契合。</h2><p>这是摘要<br>
+          
       
       
     </div>
@@ -278,6 +269,10 @@
       
 
       
+      
+        <p class="article-more-link">
+          <a  href="/2018/08/08/SRGAN/#more">大航海 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
