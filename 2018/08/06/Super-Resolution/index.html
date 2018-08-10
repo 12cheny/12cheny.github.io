@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Myblog">
 <meta property="og:description" content="最近自己在研究超分辨率方向，所以特写个小总结，谈谈自己遇到的一些问题以及收获。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-10T06:37:39.665Z">
+<meta property="og:updated_time" content="2018-08-10T06:55:23.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Super Resolution">
 <meta name="twitter:description" content="最近自己在研究超分辨率方向，所以特写个小总结，谈谈自己遇到的一些问题以及收获。">
@@ -269,7 +269,7 @@
 <h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>超分辨率直观的应用就是提高图像分辨率，相应的可以用于生物医学成像、卫星成像等，同时在互联网时代，SR技术可以大大地节省流量，因为我们的图像传播都是经过压缩的，所以通过超分辨率技术可以在相同的用户体验下使用更高的压缩率，进而节省网络流量。</p>
 <h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>主要的SR重建方法有3类：插值法、重构法和学习法<br>由于传统方法并没有较好的效果，所以这里我们着重谈学习法，即深度学习在SR上的应用。</p>
 <h2 id="标准"><a href="#标准" class="headerlink" title="标准"></a>标准</h2><p>既然超分辨率是个问题，那么必然有标准来评判好坏吧，不然如何界定谁有谁劣。传统的一些参数有PSNR(峰值信噪比)、SSIM(结构相似性)，但是两者其实并不能很好的评估图像，往往会出现与肉眼体验想异的情况。2016年CVPR有一篇论文提出perceptual loss作为损失函数，同时2018年CVPR也专门有一篇论文提出来讨论这个问题：The-Perception-Distortion-Tradeoff即失真与感知的均衡，在ECCV2018 PIRM图像重建挑战赛中也借助论文观点，引用perceptual index作为评价标准。 另外还有Frechat Inception Distance和Inception Score.</p>
-<h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p>1.首先分析网络结构，输入LR，得到SR，所以必定涉及到上采样的问题，那么上采样的方法也必定会对网络有影响，在神经网络中最常见的上采样方法就是反卷积，但是反卷积无故产生空白信息，效果并不好，ESPCN提出了sub-pixel conv，效果比较好，SRGAN中也引用了sub-pixel来重建高分辨率，而更早的SRCNN是使用了字典学习与稀疏编码，通过低分辨字典特征映射高分辨字典特征，再进行重建。<br>2.另外就是上采样在网络中的位置，不同位置也会对其有影响，大部分的网络结构都放在前面，但在前面必定会丢失掉图像本身的细节信息，例如SRCNN直接在输入端先将LR图片进行bicubic插值法变为高分辨率图像，然后再送入网络中训练，这样势必会使输出图像细节并不好，而最近的ESPCN则将sub-pixel conv放在最后一层，这样就充分的保留了细节信息，最后效果也的确更好。<br>3.损失函数也是一个网络训练的关键点，它决定了网络朝着哪个方向优化，这个其实和前面的评价标准有关，如果你想要更低的失真度，那就以PSNR,SSIM作为目标，一般选取MSE作为损失函数，如果想过得更好的感知效果，那就以perceptual loss作为损失函数，获取更好的肉眼感受。</p>
+<h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p>1.首先分析网络结构，输入LR，得到SR，所以必定涉及到上采样的问题，那么上采样的方法也必定会对网络有影响，在神经网络中最常见的上采样方法就是反卷积，但是反卷积(更准确是转置卷积)无故产生空白信息，效果并不好，ESPCN提出了sub-pixel conv，效果比较好，SRGAN中也引用了sub-pixel来重建高分辨率，而更早的SRCNN是使用了字典学习与稀疏编码，通过低分辨字典特征映射高分辨字典特征，再进行重建。<br>2.另外就是上采样在网络中的位置，不同位置也会对其有影响，大部分的网络结构都放在前面，但在前面必定会丢失掉图像本身的细节信息，例如SRCNN直接在输入端先将LR图片进行bicubic插值法变为高分辨率图像，然后再送入网络中训练，这样势必会使输出图像细节并不好，而最近的ESPCN则将sub-pixel conv放在最后一层，这样就充分的保留了细节信息，最后效果也的确更好。<br>3.损失函数也是一个网络训练的关键点，它决定了网络朝着哪个方向优化，这个其实和前面的评价标准有关，如果你想要更低的失真度，那就以PSNR,SSIM作为目标，一般选取MSE作为损失函数，如果想过得更好的感知效果，那就以perceptual loss作为损失函数，获取更好的肉眼感受。</p>
 
       
       
@@ -328,7 +328,7 @@
         <p><span>本文标题:</span><a href="/2018/08/06/Super-Resolution/">Super Resolution</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 cheny 的个人博客">cheny</a></p>
         <p><span>发布时间:</span>2018年08月06日 - 15时06分</p>
-        <p><span>最后更新:</span>2018年08月10日 - 14时37分</p>
+        <p><span>最后更新:</span>2018年08月10日 - 14时55分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/06/Super-Resolution/" title="Super Resolution">http://yoursite.com/2018/08/06/Super-Resolution/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/08/06/Super-Resolution/　　作者: cheny" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
