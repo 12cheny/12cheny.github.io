@@ -14,7 +14,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/SRCNN.png">
 <meta property="og:image" content="http://yoursite.com/images/sparse.png">
-<meta property="og:updated_time" content="2018-08-10T07:56:11.193Z">
+<meta property="og:updated_time" content="2018-08-10T08:09:33.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SRCNN">
 <meta name="twitter:description" content="SRCNN是深度学习与超分辨率结合的开山之作，同时它还使用了之前在超分辨率问题效果比较好的传统方法-稀疏编码，输入为HR图片经过下采样得到的图片再用bicubic得到的高分辨率图片，通过网络输出SR图片，将输出HR间的MSE作为损失函数，其效果相对于传统方法就较大提升。">
@@ -268,7 +268,8 @@
           
         <p>SRCNN是深度学习与超分辨率结合的开山之作，同时它还使用了之前在超分辨率问题效果比较好的传统方法-稀疏编码，输入为HR图片经过下采样得到的图片再用bicubic得到的高分辨率图片，通过网络输出SR图片，将输出HR间的MSE作为损失函数，其效果相对于传统方法就较大提升。<br><a id="more"></a></p>
 <h2 id="1-网络结构"><a href="#1-网络结构" class="headerlink" title="1.网络结构"></a>1.网络结构</h2><p><img src="/images/SRCNN.png" alt=""><br>SRCNN网络结构较为简单，只有三层，网络结构借助了稀疏编码的思想，首先将图片输入，进行卷积操作，生成字典特征，再通过一个非线性映射网络得到高分辨率特征，再进行重建得到高分辨率图像。</p>
-<h2 id="2-sparse-coding"><a href="#2-sparse-coding" class="headerlink" title="2.sparse coding"></a>2.sparse coding</h2><p>sparse coding是将输入的样本集X分解为多个基元的线性组合，然后这些基前面的系数表示的是输入样本的特征。其分解公式表达如下：<br><img src="/images/sparse.png" alt=""></p>
+<h2 id="2-sparse-coding"><a href="#2-sparse-coding" class="headerlink" title="2.sparse coding"></a>2.sparse coding</h2><p>sparse coding是将输入的样本集X分解为多个基元的线性组合，然后这些基前面的系数表示的是输入样本的特征。其分解公式表达如下：<br><img src="/images/sparse.png" alt="">所以这里借助sparse coding的思想将图片分为字典特征，再进行非线性映射，最后将特征重建即可。</p>
+<h2 id="3-loss"><a href="#3-loss" class="headerlink" title="3.loss"></a>3.loss</h2><p>SRCNN采用输入图片与原图的MSE作为损失函数，所以最后生成图片的PSNR会比较高。</p>
 <p> 　　</p>
 
       
@@ -328,7 +329,7 @@
         <p><span>本文标题:</span><a href="/2018/08/10/SRCNN/">SRCNN</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 cheny 的个人博客">cheny</a></p>
         <p><span>发布时间:</span>2018年08月10日 - 15时28分</p>
-        <p><span>最后更新:</span>2018年08月10日 - 15时56分</p>
+        <p><span>最后更新:</span>2018年08月10日 - 16时09分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/10/SRCNN/" title="SRCNN">http://yoursite.com/2018/08/10/SRCNN/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/08/10/SRCNN/　　作者: cheny" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -357,7 +358,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-网络结构"><span class="toc-number">1.</span> <span class="toc-text">1.网络结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-sparse-coding"><span class="toc-number">2.</span> <span class="toc-text">2.sparse coding</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-网络结构"><span class="toc-number">1.</span> <span class="toc-text">1.网络结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-sparse-coding"><span class="toc-number">2.</span> <span class="toc-text">2.sparse coding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-loss"><span class="toc-number">3.</span> <span class="toc-text">3.loss</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
