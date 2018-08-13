@@ -16,18 +16,20 @@
     
     
 
-    <meta name="description" content="最近在统计的深度学习高引用论文中，何恺明团队的ResNet排第一，引用已过万，可见其对深度学习发展影响，由于最近看SR论文中，基本网络都有用到Resnet结构，于是特写篇博客来复习巩固一下，同时对CNN的一些基本问题进行研究。">
+    <meta name="description" content="原文最近在统计的深度学习高引用论文中，何恺明团队的ResNet排第一，引用已过万，可见其对深度学习发展影响，由于最近看SR论文中，基本网络都有用到Resnet结构，于是特写篇博客来复习巩固一下，同时对CNN的一些基本问题进行研究。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ResNet | cheny">
 <meta property="og:url" content="http://yoursite.com/2018/08/13/ResNet/index.html">
 <meta property="og:site_name" content="cheny">
-<meta property="og:description" content="最近在统计的深度学习高引用论文中，何恺明团队的ResNet排第一，引用已过万，可见其对深度学习发展影响，由于最近看SR论文中，基本网络都有用到Resnet结构，于是特写篇博客来复习巩固一下，同时对CNN的一些基本问题进行研究。">
+<meta property="og:description" content="原文最近在统计的深度学习高引用论文中，何恺明团队的ResNet排第一，引用已过万，可见其对深度学习发展影响，由于最近看SR论文中，基本网络都有用到Resnet结构，于是特写篇博客来复习巩固一下，同时对CNN的一些基本问题进行研究。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/Res.jpg">
-<meta property="og:updated_time" content="2018-08-13T11:26:23.477Z">
+<meta property="og:image" content="http://yoursite.com/images/densenet1.png">
+<meta property="og:image" content="http://yoursite.com/images/densenet2.png">
+<meta property="og:updated_time" content="2018-08-13T11:41:59.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ResNet | cheny">
-<meta name="twitter:description" content="最近在统计的深度学习高引用论文中，何恺明团队的ResNet排第一，引用已过万，可见其对深度学习发展影响，由于最近看SR论文中，基本网络都有用到Resnet结构，于是特写篇博客来复习巩固一下，同时对CNN的一些基本问题进行研究。">
+<meta name="twitter:description" content="原文最近在统计的深度学习高引用论文中，何恺明团队的ResNet排第一，引用已过万，可见其对深度学习发展影响，由于最近看SR论文中，基本网络都有用到Resnet结构，于是特写篇博客来复习巩固一下，同时对CNN的一些基本问题进行研究。">
 <meta name="twitter:image" content="http://yoursite.com/images/Res.jpg">
     
     
@@ -173,9 +175,10 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p>最近在统计的深度学习高引用论文中，何恺明团队的ResNet排第一，引用已过万，可见其对深度学习发展影响，由于最近看SR论文中，基本网络都有用到Resnet结构，于是特写篇博客来复习巩固一下，同时对CNN的一些基本问题进行研究。<br><a id="more"></a></p>
+    <p><a href="https://arxiv.org/pdf/1512.03385.pdf" target="_blank" rel="noopener">原文</a><br>最近在统计的深度学习高引用论文中，何恺明团队的ResNet排第一，引用已过万，可见其对深度学习发展影响，由于最近看SR论文中，基本网络都有用到Resnet结构，于是特写篇博客来复习巩固一下，同时对CNN的一些基本问题进行研究。<br><a id="more"></a></p>
 <h2 id="1-网络结构"><a href="#1-网络结构" class="headerlink" title="1.网络结构"></a>1.网络结构</h2><p><img src="/images/Res.jpg" alt=""><br>ResNet相对于传统卷积神经网络其实只是增加了skip connection，即如上图所示。</p>
-<h2 id="2-作用"><a href="#2-作用" class="headerlink" title="2.作用"></a>2.作用</h2><p>ResNet前言提到了其实为了解决神经网络随着层数增加，难以训练、泛化能力不好的问题，随着层数逐渐增加，在梯度反向传播的过程中，必定会产生梯度弥散，导致神经网络难以优化，而残差神经网络则通过skip connection将梯度直接向后传递，从而解决了梯度弥散的问题，因此通过Residual Block也可以设计更深的卷积神经网络。</p>
+<h2 id="2-作用"><a href="#2-作用" class="headerlink" title="2.作用"></a>2.作用</h2><p>ResNet前言提到了其实为了解决神经网络随着层数增加，难以训练、泛化能力不好的问题，随着层数逐渐增加，在梯度反向传播的过程中，必定会产生梯度消失，导致神经网络难以优化，而残差神经网络则通过skip connection将梯度直接向后传递，从而解决了梯度消失的问题，因此通过Residual Block也可以设计更深的卷积神经网络。</p>
+<h2 id="3-拓展"><a href="#3-拓展" class="headerlink" title="3.拓展"></a>3.拓展</h2><p>我看的第一篇深度学习论文便是DenseNet，它是基于ResNet的思想的，只不过它更加疯狂，采用一种密集全连接，将所以层都连接起来。<br><img src="/images/densenet1.png" alt=""><br><img src="/images/densenet2.png" alt=""></p>
 
   </section>
 
