@@ -7,7 +7,7 @@
     
 
     <title>
-      idea | cheny 
+      Books | cheny 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,17 +16,17 @@
     
     
 
-    <meta name="description" content="今天突然感觉自己脑袋空空如也，无所思无所想，我觉得学习更多应该是主动的，是基于自己的想法，为了实现想法而一步步思考去解决问题的，不能被动去接受问题。">
+    <meta name="description" content="数理统计学简史今天突然在微信公众号看到一个深度学习500问的github项目，读了第一章数学基础，发现大部分知识都忘了，本着对正态分布由来的疑惑就去谷歌乱查了一通，然后又来了一堆新问题，概率论和统计有什么区别？有幸看到别人介绍了一本好书《数理统计学简史》，看了pdf版本的导读，觉得很有必要看一下，在淘宝一查居然还是绝版的，所以这种稀有好书更值得好好拜读了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="idea | cheny">
-<meta property="og:url" content="http://yoursite.com/2018/08/25/idea/index.html">
+<meta property="og:title" content="Books | cheny">
+<meta property="og:url" content="http://yoursite.com/2018/11/01/Books/index.html">
 <meta property="og:site_name" content="cheny">
-<meta property="og:description" content="今天突然感觉自己脑袋空空如也，无所思无所想，我觉得学习更多应该是主动的，是基于自己的想法，为了实现想法而一步步思考去解决问题的，不能被动去接受问题。">
+<meta property="og:description" content="数理统计学简史今天突然在微信公众号看到一个深度学习500问的github项目，读了第一章数学基础，发现大部分知识都忘了，本着对正态分布由来的疑惑就去谷歌乱查了一通，然后又来了一堆新问题，概率论和统计有什么区别？有幸看到别人介绍了一本好书《数理统计学简史》，看了pdf版本的导读，觉得很有必要看一下，在淘宝一查居然还是绝版的，所以这种稀有好书更值得好好拜读了。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-30T09:22:28.840Z">
+<meta property="og:updated_time" content="2018-11-01T09:00:46.552Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="idea | cheny">
-<meta name="twitter:description" content="今天突然感觉自己脑袋空空如也，无所思无所想，我觉得学习更多应该是主动的，是基于自己的想法，为了实现想法而一步步思考去解决问题的，不能被动去接受问题。">
+<meta name="twitter:title" content="Books | cheny">
+<meta name="twitter:description" content="数理统计学简史今天突然在微信公众号看到一个深度学习500问的github项目，读了第一章数学基础，发现大部分知识都忘了，本着对正态分布由来的疑惑就去谷歌乱查了一通，然后又来了一堆新问题，概率论和统计有什么区别？有幸看到别人介绍了一本好书《数理统计学简史》，看了pdf版本的导读，觉得很有必要看一下，在淘宝一查居然还是绝版的，所以这种稀有好书更值得好好拜读了。">
     
     
     
@@ -150,12 +150,12 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">idea</h1>
+    <h1 class="post-title">Books</h1>
 
     
 
     <div class="post-meta">
-      <time datetime="2018-08-25" class="post-meta__date date">2018-08-25</time> 
+      <time datetime="2018-11-01" class="post-meta__date date">2018-11-01</time> 
 
       <span class="post-meta__tags tags">
 
@@ -171,12 +171,7 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p>今天突然感觉自己脑袋空空如也，无所思无所想，我觉得学习更多应该是主动的，是基于自己的想法，为了实现想法而一步步思考去解决问题的，不能被动去接受问题。<br><a id="more"></a></p>
-<h2 id="CGAN"><a href="#CGAN" class="headerlink" title="CGAN"></a>CGAN</h2><p>最近google出了一个比较好玩的微信小程序-猜画小歌，相信大多数人都有玩过吧，正好最近也在看生成模型，我想能不能自己实现一个算法来玩这个小游戏，即给你一个物体描述，比如杯子，然后你需要输出一个杯子的黑白图，其实这个有很多种方法，并不一定要用生成模型，你可以搜集所有类别数据，然后只需要检索即可以输出，但是如果想要生成新图，那就只能使用生成模型了，传统的GAN能够实现的是输入噪声，然后随意生成图片，那我们这里的要求就是输入一定条件，所以这里就需要用到CGAN了，首先简单介绍一下CGAN的基本网络。</p>
-<p>在CGAN的论文中，作者有提到GAN的训练过程，其实在学习GAN的过程中自己还是有一个问题没有解决的，虽然G  net和D net在交替训练，可是我们并不知道什么时候他们才训练结束，但是好像发现基本的CNN分类网络也并没有什么很明确的界限说什么时候可以结束训练了，只是说我们给定一定的训练迭代次数，但是分类网络至少有个标准说，你训练一定的次数，最后输出的判别结果能够接近1，但是GAN好像没有什么标准说你网络训练的好与坏。……突然发现好像有点问题，D网络好像可以作为判别标准。呃呃呃。。。</p>
-<h2 id="王小波"><a href="#王小波" class="headerlink" title="王小波"></a>王小波</h2><p>这几天看王小波的《思考的乐趣》，虽然自己阅读能力并不强，大部分内容都并未细读，但是还是觉得此书读来深觉自己肤浅至极，是个没有信仰没有灵魂的人。</p>
-<h2 id="AI拍电影"><a href="#AI拍电影" class="headerlink" title="AI拍电影"></a>AI拍电影</h2><p>前天去看了电影蚁人2,最后电影结束播放的都是类似于动漫形式的片段，我想这种3D特效电影可以用AI技术来拍摄吗，就是先制造出动漫，再将动漫人物换成真实演员，场景也进行加工，不过好像特效就是这样做出来的…不知道这样的想法有没有什么意义，不过我觉得AI还是可以用于电影制作过程中的。</p>
-<h2 id="网络优化"><a href="#网络优化" class="headerlink" title="网络优化"></a>网络优化</h2><p>今天看NTIRE2018超分辨率优胜算法，发现它主要工作是优化EDSR网络，通过一些常见的加速神经网络训练的方法来优化，比如Weight Normalization，Low Rank Expansions。既然提到Normalization，那不得不提BN了，BN主要是使数据独立同分布，而WN则是使网络参数独立同分布。</p>
+    <h2 id="数理统计学简史"><a href="#数理统计学简史" class="headerlink" title="数理统计学简史"></a>数理统计学简史</h2><p>今天突然在微信公众号看到一个深度学习500问的github项目，读了第一章数学基础，发现大部分知识都忘了，本着对正态分布由来的疑惑就去谷歌乱查了一通，然后又来了一堆新问题，概率论和统计有什么区别？有幸看到别人介绍了一本好书《数理统计学简史》，看了pdf版本的导读，觉得很有必要看一下，在淘宝一查居然还是绝版的，所以这种稀有好书更值得好好拜读了。</p>
 
   </section>
 
