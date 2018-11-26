@@ -24,7 +24,7 @@
 <meta property="og:description" content="AdaptSegNet是CVPR-2018的一篇论文，基于Doman-Adaption和GAN原理进行场景分割">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/AdaptSegNet_01.png">
-<meta property="og:updated_time" content="2018-11-26T07:00:56.985Z">
+<meta property="og:updated_time" content="2018-11-26T07:03:59.679Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AdaptSegNet | cheny">
 <meta name="twitter:description" content="AdaptSegNet是CVPR-2018的一篇论文，基于Doman-Adaption和GAN原理进行场景分割">
@@ -174,7 +174,7 @@ classes that you can use:
 
   <section id="post-content" class="article-content post">
     <p><a href="https://arxiv.org/pdf/1802.10349.pdf" target="_blank" rel="noopener">AdaptSegNet</a>是CVPR-2018的一篇论文，基于Doman-Adaption和GAN原理进行场景分割<br><a id="more"></a></p>
-<p>#1.网络结构<br><img src="/images/AdaptSegNet_01.png" alt=""><br>AdaptSegNet分为两个部分G网络和D网络，类似于GAN的结构，这里的G是左边的分割网络，D则是右边的判别网络。输入数据分为Source Domain(游戏场景)和Target Domain(现实场景)，我们依赖于两者的相似性对分割进行优化。首先我们将Source输入G网络进行训练，Source经G分割得到Ps,Target经G分割得到Pt,再将两者输入D进行对抗学习，进而反向优化分割网络，使得Target能够更好地被分割。</p>
+<h1 id="1-网络结构"><a href="#1-网络结构" class="headerlink" title="1.网络结构"></a>1.网络结构</h1><p><img src="/images/AdaptSegNet_01.png" alt=""><br>AdaptSegNet分为两个部分G网络和D网络，类似于GAN的结构，这里的G是左边的分割网络，D则是右边的判别网络。输入数据分为Source Domain(游戏场景)和Target Domain(现实场景)，我们依赖于两者的相似性对分割进行优化。首先我们将Source输入G网络进行训练，Source经G分割得到Ps,Target经G分割得到Pt,再将两者输入D进行对抗学习，进而反向优化分割网络，使得Target能够更好地被分割。</p>
 
   </section>
 
