@@ -7,7 +7,7 @@
     
 
     <title>
-      Review CS231n | cheny 
+      AdaptSegNet | cheny 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,17 +16,17 @@
     
     
 
-    <meta name="description" content="看完一些SR论文后，发现许多网络都是在基本网络上做一些修改，加一些层，去掉BN之类的，所以这里特二刷CS231n课程来巩固基本知识，同时也会看一些立足于CNN可解释性和基本改造的论文来深入理解CNN。">
+    <meta name="description" content="AdaptSegNet是CVPR-2018的一篇论文，基于Doman-Adaption和GAN原理进行场景分割">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Review CS231n | cheny">
-<meta property="og:url" content="http://yoursite.com/2018/08/15/Review-CS231n/index.html">
+<meta property="og:title" content="AdaptSegNet | cheny">
+<meta property="og:url" content="http://yoursite.com/2018/11/26/AdaptSegNet/index.html">
 <meta property="og:site_name" content="cheny">
-<meta property="og:description" content="看完一些SR论文后，发现许多网络都是在基本网络上做一些修改，加一些层，去掉BN之类的，所以这里特二刷CS231n课程来巩固基本知识，同时也会看一些立足于CNN可解释性和基本改造的论文来深入理解CNN。">
+<meta property="og:description" content="AdaptSegNet是CVPR-2018的一篇论文，基于Doman-Adaption和GAN原理进行场景分割">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-07T10:35:39.464Z">
+<meta property="og:updated_time" content="2018-11-26T06:45:44.641Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Review CS231n | cheny">
-<meta name="twitter:description" content="看完一些SR论文后，发现许多网络都是在基本网络上做一些修改，加一些层，去掉BN之类的，所以这里特二刷CS231n课程来巩固基本知识，同时也会看一些立足于CNN可解释性和基本改造的论文来深入理解CNN。">
+<meta name="twitter:title" content="AdaptSegNet | cheny">
+<meta name="twitter:description" content="AdaptSegNet是CVPR-2018的一篇论文，基于Doman-Adaption和GAN原理进行场景分割">
     
     
     
@@ -150,12 +150,12 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">Review CS231n</h1>
+    <h1 class="post-title">AdaptSegNet</h1>
 
     
 
     <div class="post-meta">
-      <time datetime="2018-08-15" class="post-meta__date date">2018-08-15</time> 
+      <time datetime="2018-11-26" class="post-meta__date date">2018-11-26</time> 
 
       <span class="post-meta__tags tags">
 
@@ -171,7 +171,8 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p>看完一些SR论文后，发现许多网络都是在基本网络上做一些修改，加一些层，去掉BN之类的，所以这里特二刷CS231n课程来巩固基本知识，同时也会看一些立足于CNN可解释性和基本改造的论文来深入理解CNN。<br><a id="more"></a><br>1.Batch Normalization和Weight Nornalization<br>独立同分布，防止梯度反向传播消失<br>2.海森矩阵<br>3.Regularization Dropout 对参数进行约束，防止过拟合<br>4.optimization:SGD、Momentum、Adam 防止陷入局部最优</p>
+    <p><a href="https://arxiv.org/pdf/1802.10349.pdf" target="_blank" rel="noopener">AdaptSegNet</a>是CVPR-2018的一篇论文，基于Doman-Adaption和GAN原理进行场景分割<br><a id="more"></a></p>
+<p>1.网络结构</p>
 
   </section>
 
