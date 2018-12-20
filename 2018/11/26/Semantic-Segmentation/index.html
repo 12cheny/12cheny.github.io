@@ -7,7 +7,7 @@
     
 
     <title>
-      AdaptSegNet | cheny 
+      Semantic Segmentation | cheny 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,19 +16,17 @@
     
     
 
-    <meta name="description" content="AdaptSegNet是CVPR-2018的一篇论文，基于Doman-Adaption和GAN原理进行场景分割">
+    <meta name="description" content="由于最近在看语义分割相关论文，所以这里把自己看过的论文及遇到的一些问题记录下来。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AdaptSegNet | cheny">
-<meta property="og:url" content="http://yoursite.com/2018/11/26/AdaptSegNet/index.html">
+<meta property="og:title" content="Semantic Segmentation | cheny">
+<meta property="og:url" content="http://yoursite.com/2018/11/26/Semantic-Segmentation/index.html">
 <meta property="og:site_name" content="cheny">
-<meta property="og:description" content="AdaptSegNet是CVPR-2018的一篇论文，基于Doman-Adaption和GAN原理进行场景分割">
+<meta property="og:description" content="由于最近在看语义分割相关论文，所以这里把自己看过的论文及遇到的一些问题记录下来。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/images/AdaptSegNet_01.png">
-<meta property="og:updated_time" content="2018-12-20T00:27:13.579Z">
+<meta property="og:updated_time" content="2018-11-26T14:55:55.980Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AdaptSegNet | cheny">
-<meta name="twitter:description" content="AdaptSegNet是CVPR-2018的一篇论文，基于Doman-Adaption和GAN原理进行场景分割">
-<meta name="twitter:image" content="http://yoursite.com/images/AdaptSegNet_01.png">
+<meta name="twitter:title" content="Semantic Segmentation | cheny">
+<meta name="twitter:description" content="由于最近在看语义分割相关论文，所以这里把自己看过的论文及遇到的一些问题记录下来。">
     
     
     
@@ -152,7 +150,7 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">AdaptSegNet</h1>
+    <h1 class="post-title">Semantic Segmentation</h1>
 
     
 
@@ -173,11 +171,9 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p><a href="https://arxiv.org/pdf/1802.10349.pdf" target="_blank" rel="noopener">AdaptSegNet</a>是CVPR-2018的一篇论文，基于Doman-Adaption和GAN原理进行场景分割<br><a id="more"></a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><font color="#FF0000">1.Domain Adaption</font><br>在经典机器学习中，我们往往假设训练集和测试集分布一致，在训练集上训练模型，在测试集上测试。然而在实际问题中，测试场景往往非可控，测试集与训练集分布有很大差异，这时候就会出现所谓的过拟合问题<br>当训练集和测试集分布不一致的情况下，通过在训练数据上按经验误差最小准则训练的模型在测试上性能不好，因此出现了迁移学习技术。</p>
-<p>领域自适应（Domain Adaptation）是迁移学习中的一种代表性方法，指的是利用信息丰富的源域样本来提升目标域模型的性能。<br>领域自适应问题中两个至关重要的概念：源域（source domain）表示与测试样本不同的领域，但是有丰富的监督信息；目标域（target domain）表示测试样本所在的领域，无标签或者只有少量标签。源域和目标域往往属于同一类任务，但是分布不同。<br>根据目标域和源域的不同类型，领域自适应问题有四类不同的场景：无监督的，有监督的，异构分布和多个源域问题。<br>通过在不同阶段进行领域自适应，研究者提出了三种不同的领域自适应方法：1）样本自适应，对源域样本进行加权重采样，从而逼近目标域的分布。2）特征层面自适应，将源域和目标域投影到公共特征子空间。3）模型层面自适应，对源域误差函数进行修改，考虑目标域的误差。</p>
-<h1 id="1-网络结构"><a href="#1-网络结构" class="headerlink" title="1.网络结构"></a>1.网络结构</h1><p><img src="/images/AdaptSegNet_01.png" alt=""><br>AdaptSegNet分为两个部分G网络和D网络，类似于GAN的结构，这里的G是左边的分割网络，D则是右边的判别网络。输入数据分为Source Domain(游戏场景)和Target Domain(现实场景)，我们依赖于两者的相似性对分割进行优化。首先我们将Source输入G网络进行训练，Source经G分割得到Ps,Target经G分割得到Pt,再将两者输入D进行对抗学习，进而反向优化分割网络，使得Target能够更好地被分割。</p>
-<h1 id="2-代码实现"><a href="#2-代码实现" class="headerlink" title="2.代码实现"></a>2.代码实现</h1><p>由于该论文代码开源，所以我就在github上直接找到代码进行阅读，并尝试复现，首先第一个问题就是数据集，GTA5和CityScapes，由于之前没有接触过，所以这次下载费了很大功夫，首先是GTA5数据集，一共10个part，每个5G，说起来也不大，但是下载速度只有几十k，无奈只能放到服务器后台没日没夜的下，由于nohup.out文件大小会溢出，所以这里使用nohup wget 链接地址  &gt;/dev/null 2&gt;&amp;1 &amp;来后台下载，以后我得专门买个硬盘来存这些数据集，下得太慢了</p>
+    <p>由于最近在看语义分割相关论文，所以这里把自己看过的论文及遇到的一些问题记录下来。<br><a id="more"></a></p>
+<h1 id="1-初识"><a href="#1-初识" class="headerlink" title="1.初识"></a>1.初识</h1><p>分割问题其实与我之前所研究的超分辨率问题类似，过程都是先进行下采样再进行上采样。所以这里我们会提到很多上采样的方法。</p>
+<h2 id="上采样"><a href="#上采样" class="headerlink" title="上采样"></a>上采样</h2><p>由于下采样池化会丢失信息，所以需要去掉池化，但是池化层去掉随之带来的是网络各层<font color="4876FF">感受野</font>变小，dilated convolution是一个很好的解决方案，即在去掉池化下采样操作的同时，而不降低网络的感受野。</p>
 
   </section>
 
