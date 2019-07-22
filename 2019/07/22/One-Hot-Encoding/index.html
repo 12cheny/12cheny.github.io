@@ -16,17 +16,17 @@
     
     
 
-    <meta name="description" content="One-Hot Encoding1. 理论第一次接触到One-Hot编码是在MNIST分类中，将分类标签0-9进行One-Hot处理，这样可以将标签值映射到欧式空间的点，并且相互独立处于同等状态，不会像一维空间的0-9会有大小区别，使特征之间的距离计算更加的合理。 举个简单的例子，性别分为三类：[‘male’, ‘female’, ‘others’],像这样的抽象特征我们无法直接表述，一般都是通过">
+    <meta name="description" content="1. 理论第一次接触到One-Hot编码是在MNIST分类中，将分类标签0-9进行One-Hot处理，这样可以将标签值映射到欧式空间的点，并且相互独立处于同等状态，不会像一维空间的0-9会有大小区别，使特征之间的距离计算更加的合理。 举个简单的例子，性别分为三类：[‘male’, ‘female’, ‘others’],像这样的抽象特征我们无法直接表述，一般都是通过编码进行信息简化，而One-Ho">
 <meta property="og:type" content="article">
 <meta property="og:title" content="One-Hot Encoding | cheny">
 <meta property="og:url" content="http://yoursite.com/2019/07/22/One-Hot-Encoding/index.html">
 <meta property="og:site_name" content="cheny">
-<meta property="og:description" content="One-Hot Encoding1. 理论第一次接触到One-Hot编码是在MNIST分类中，将分类标签0-9进行One-Hot处理，这样可以将标签值映射到欧式空间的点，并且相互独立处于同等状态，不会像一维空间的0-9会有大小区别，使特征之间的距离计算更加的合理。 举个简单的例子，性别分为三类：[‘male’, ‘female’, ‘others’],像这样的抽象特征我们无法直接表述，一般都是通过">
+<meta property="og:description" content="1. 理论第一次接触到One-Hot编码是在MNIST分类中，将分类标签0-9进行One-Hot处理，这样可以将标签值映射到欧式空间的点，并且相互独立处于同等状态，不会像一维空间的0-9会有大小区别，使特征之间的距离计算更加的合理。 举个简单的例子，性别分为三类：[‘male’, ‘female’, ‘others’],像这样的抽象特征我们无法直接表述，一般都是通过编码进行信息简化，而One-Ho">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-22T08:01:18.070Z">
+<meta property="og:updated_time" content="2019-07-22T08:18:11.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="One-Hot Encoding | cheny">
-<meta name="twitter:description" content="One-Hot Encoding1. 理论第一次接触到One-Hot编码是在MNIST分类中，将分类标签0-9进行One-Hot处理，这样可以将标签值映射到欧式空间的点，并且相互独立处于同等状态，不会像一维空间的0-9会有大小区别，使特征之间的距离计算更加的合理。 举个简单的例子，性别分为三类：[‘male’, ‘female’, ‘others’],像这样的抽象特征我们无法直接表述，一般都是通过">
+<meta name="twitter:description" content="1. 理论第一次接触到One-Hot编码是在MNIST分类中，将分类标签0-9进行One-Hot处理，这样可以将标签值映射到欧式空间的点，并且相互独立处于同等状态，不会像一维空间的0-9会有大小区别，使特征之间的距离计算更加的合理。 举个简单的例子，性别分为三类：[‘male’, ‘female’, ‘others’],像这样的抽象特征我们无法直接表述，一般都是通过编码进行信息简化，而One-Ho">
     
     
     
@@ -171,7 +171,7 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h1 id="One-Hot-Encoding"><a href="#One-Hot-Encoding" class="headerlink" title="One-Hot Encoding"></a>One-Hot Encoding</h1><h2 id="1-理论"><a href="#1-理论" class="headerlink" title="1. 理论"></a>1. 理论</h2><p>第一次接触到One-Hot编码是在MNIST分类中，将分类标签0-9进行One-Hot处理，这样可以将标签值映射到欧式空间的点，并且相互独立处于同等状态，不会像一维空间的0-9会有大小区别，使特征之间的距离计算更加的合理。</p>
+    <h2 id="1-理论"><a href="#1-理论" class="headerlink" title="1. 理论"></a>1. 理论</h2><p>第一次接触到One-Hot编码是在MNIST分类中，将分类标签0-9进行One-Hot处理，这样可以将标签值映射到欧式空间的点，并且相互独立处于同等状态，不会像一维空间的0-9会有大小区别，使特征之间的距离计算更加的合理。</p>
 <p>举个简单的例子，性别分为三类：[‘male’, ‘female’, ‘others’],像这样的抽象特征我们无法直接表述，一般都是通过编码进行信息简化，而One-Hot的操作结果如下：<br>‘male’   : [1, 0, 0]<br>‘female’ : [0, 1, 0]<br>‘others’ : [0, 0, 1]<br>正如One-Hot的字面意思(独热)一样，只在某一个维度显示。</p>
 <h2 id="2-代码实现"><a href="#2-代码实现" class="headerlink" title="2.代码实现"></a>2.代码实现</h2><p>One-Hot的理论其实比较简单，实现起来可繁可简，方法也是千奇百怪，这里我推荐一种一行代码实现的方法：</p>
 
