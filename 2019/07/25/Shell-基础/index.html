@@ -16,17 +16,17 @@
     
     
 
-    <meta name="description" content="在linux系统中常常需要用shell脚本进行批处理，当然也可以用python脚本处理，这里我总结一些自己常用到的shell简单操作 文件名、下载链接中的数字变量由于文件数量较大，一个个处理过于耗时耗力，你可以直接读取当前目录下所有文件，也可以对文件名进行循环操作，由于外部链接无法读取，所以只能进行循环，而往往数字都是固定长度的，比如001、002、003…这里提供一种变量长度固定化的方法 #!/">
+    <meta name="description" content="在linux系统中常常需要用shell脚本进行批处理，当然也可以用python脚本处理，这里我总结一些自己常用到的shell简单操作 1.文件名、下载链接中的数字变量由于文件数量较大，一个个处理过于耗时耗力，你可以直接读取当前目录下所有文件，也可以对文件名进行循环操作，由于外部链接无法读取，所以只能进行循环，而往往数字都是固定长度的，比如001、002、003…这里提供一种变量长度固定化的方法 1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell 基础 | cheny">
 <meta property="og:url" content="http://yoursite.com/2019/07/25/Shell-基础/index.html">
 <meta property="og:site_name" content="cheny">
-<meta property="og:description" content="在linux系统中常常需要用shell脚本进行批处理，当然也可以用python脚本处理，这里我总结一些自己常用到的shell简单操作 文件名、下载链接中的数字变量由于文件数量较大，一个个处理过于耗时耗力，你可以直接读取当前目录下所有文件，也可以对文件名进行循环操作，由于外部链接无法读取，所以只能进行循环，而往往数字都是固定长度的，比如001、002、003…这里提供一种变量长度固定化的方法 #!/">
+<meta property="og:description" content="在linux系统中常常需要用shell脚本进行批处理，当然也可以用python脚本处理，这里我总结一些自己常用到的shell简单操作 1.文件名、下载链接中的数字变量由于文件数量较大，一个个处理过于耗时耗力，你可以直接读取当前目录下所有文件，也可以对文件名进行循环操作，由于外部链接无法读取，所以只能进行循环，而往往数字都是固定长度的，比如001、002、003…这里提供一种变量长度固定化的方法 1">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-25T01:46:48.208Z">
+<meta property="og:updated_time" content="2019-07-25T01:56:15.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell 基础 | cheny">
-<meta name="twitter:description" content="在linux系统中常常需要用shell脚本进行批处理，当然也可以用python脚本处理，这里我总结一些自己常用到的shell简单操作 文件名、下载链接中的数字变量由于文件数量较大，一个个处理过于耗时耗力，你可以直接读取当前目录下所有文件，也可以对文件名进行循环操作，由于外部链接无法读取，所以只能进行循环，而往往数字都是固定长度的，比如001、002、003…这里提供一种变量长度固定化的方法 #!/">
+<meta name="twitter:description" content="在linux系统中常常需要用shell脚本进行批处理，当然也可以用python脚本处理，这里我总结一些自己常用到的shell简单操作 1.文件名、下载链接中的数字变量由于文件数量较大，一个个处理过于耗时耗力，你可以直接读取当前目录下所有文件，也可以对文件名进行循环操作，由于外部链接无法读取，所以只能进行循环，而往往数字都是固定长度的，比如001、002、003…这里提供一种变量长度固定化的方法 1">
     
     
     
@@ -172,14 +172,8 @@ classes that you can use:
 
   <section id="post-content" class="article-content post">
     <p>在linux系统中常常需要用shell脚本进行批处理，当然也可以用python脚本处理，这里我总结一些自己常用到的shell简单操作</p>
-<h4 id="文件名、下载链接中的数字变量"><a href="#文件名、下载链接中的数字变量" class="headerlink" title="文件名、下载链接中的数字变量"></a>文件名、下载链接中的数字变量</h4><p>由于文件数量较大，一个个处理过于耗时耗力，你可以直接读取当前目录下所有文件，也可以对文件名进行循环操作，由于外部链接无法读取，所以只能进行循环，而往往数字都是固定长度的，比如001、002、003…<br>这里提供一种变量长度固定化的方法<br>
-#!/bin/bash
-for i in $(seq -f %03g 1 100)
-do 
-   echo $i
-done
-</p>
-
+<h3 id="1-文件名、下载链接中的数字变量"><a href="#1-文件名、下载链接中的数字变量" class="headerlink" title="1.文件名、下载链接中的数字变量"></a>1.文件名、下载链接中的数字变量</h3><p>由于文件数量较大，一个个处理过于耗时耗力，你可以直接读取当前目录下所有文件，也可以对文件名进行循环操作，由于外部链接无法读取，所以只能进行循环，而往往数字都是固定长度的，比如001、002、003…<br>这里提供一种变量长度固定化的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">for i in $(seq -f %03g 1 100)</span><br><span class="line">do </span><br><span class="line">   echo $i</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
   </section>
 
   <section class="post-comments">
