@@ -7,7 +7,7 @@
     
 
     <title>
-      cheny 
+      Shell 基础 | cheny 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,13 +16,17 @@
     
     
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="cheny">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="在linux系统中常常需要用shell脚本进行批处理，当然也可以用python脚本处理，这里我总结一些自己常用到的shell简单操作 文件名、下载链接中的数字变量由于文件数量较大，一个个处理过于耗时耗力，你可以直接读取当前目录下所有文件，也可以对文件名进行循环操作，由于外部链接无法读取，所以只能进行循环，而往往数字都是固定长度的，比如001、002、003…这里提供一种变量长度固定化的方法 #!/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shell 基础 | cheny">
+<meta property="og:url" content="http://yoursite.com/2019/07/25/Shell-基础/index.html">
 <meta property="og:site_name" content="cheny">
+<meta property="og:description" content="在linux系统中常常需要用shell脚本进行批处理，当然也可以用python脚本处理，这里我总结一些自己常用到的shell简单操作 文件名、下载链接中的数字变量由于文件数量较大，一个个处理过于耗时耗力，你可以直接读取当前目录下所有文件，也可以对文件名进行循环操作，由于外部链接无法读取，所以只能进行循环，而往往数字都是固定长度的，比如001、002、003…这里提供一种变量长度固定化的方法 #!/">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-25T01:46:48.208Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cheny">
+<meta name="twitter:title" content="Shell 基础 | cheny">
+<meta name="twitter:description" content="在linux系统中常常需要用shell脚本进行批处理，当然也可以用python脚本处理，这里我总结一些自己常用到的shell简单操作 文件名、下载链接中的数字变量由于文件数量较大，一个个处理过于耗时耗力，你可以直接读取当前目录下所有文件，也可以对文件名进行循环操作，由于外部链接无法读取，所以只能进行循环，而往往数字都是固定长度的，比如001、002、003…这里提供一种变量长度固定化的方法 #!/">
     
     
     
@@ -42,8 +46,8 @@
     </span>
 
     
- 
-<header class="panel-cover">
+
+<header class="panel-cover panel-cover--collapsed">
 
 
   <div class="panel-main">
@@ -142,64 +146,52 @@ classes that you can use:
         <div class="content-wrapper__inner entry">
             
 
+<article class="post-container post-container--single">
 
-   <!-- do nothing -->
-
-
-<div class="main-post-list">
-    <ol class="post-list">
+  <header class="post-header">
     
-    
-    <li>
+    <h1 class="post-title">Shell 基础</h1>
 
-      <h2 class="post-list__post-title post-title">
-        <a href="/2019/07/25/Shell-基础/" title="link to Shell 基础">Shell 基础</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2019-07-25" class="post-list__meta--date date">2019-07-25</time> 
-      </div>
-
-      <div class="excerpt">
-        
-      </div>
-
-      <hr class="post-list__divider" />
-    </li>
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2019/07/22/One-Hot-Encoding/" title="link to One-Hot Encoding">One-Hot Encoding</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2019-07-22" class="post-list__meta--date date">2019-07-22</time> 
-      </div>
-
-      <div class="excerpt">
-        
-      </div>
-
-      <hr class="post-list__divider" />
-    </li>
-    
-  </ol>
-
-  <hr class="post-list__divider " />
-
-<nav class="pagination" role="navigation">
     
 
-    <span class="pagination__page-number"> 1 / 1</span>
+    <div class="post-meta">
+      <time datetime="2019-07-25" class="post-meta__date date">2019-07-25</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
     
     
-</nav>
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>在linux系统中常常需要用shell脚本进行批处理，当然也可以用python脚本处理，这里我总结一些自己常用到的shell简单操作</p>
+<h4 id="文件名、下载链接中的数字变量"><a href="#文件名、下载链接中的数字变量" class="headerlink" title="文件名、下载链接中的数字变量"></a>文件名、下载链接中的数字变量</h4><p>由于文件数量较大，一个个处理过于耗时耗力，你可以直接读取当前目录下所有文件，也可以对文件名进行循环操作，由于外部链接无法读取，所以只能进行循环，而往往数字都是固定长度的，比如001、002、003…<br>这里提供一种变量长度固定化的方法<br>
+#!/bin/bash
+for i in $(seq -f %03g 1 100)
+do 
+   echo $i
+done
+</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
 
 
-</div>
+</article>
+
+
             <footer class="footer">
 
     <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
@@ -227,6 +219,18 @@ classes that you can use:
 
 
     
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
     
     
     <!--kill ie6 -->
